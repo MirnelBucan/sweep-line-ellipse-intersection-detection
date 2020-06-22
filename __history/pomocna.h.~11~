@@ -1,0 +1,118 @@
+//---------------------------------------------------------------------------
+
+#ifndef pomocnaH
+#define pomocnaH
+#include <vector>
+using namespace std;
+
+struct Tacka {
+	int x;
+	int y;
+	Tacka():x(0),y(0) {}
+	Tacka(int X, int Y):x(X),y(Y) {}
+    void Crtaj(TImage*) const;
+};
+
+bool operator==(Tacka,Tacka);
+bool operator<(Tacka,Tacka);
+double Udaljenost(Tacka,Tacka);
+
+struct Duz {
+	Tacka pocetna;
+	Tacka krajnja;
+	bool horizontalna;
+	Duz(Tacka A,Tacka B, bool horizontalna = true):pocetna(A),krajnja(B), horizontalna(horizontalna) {
+																					if(krajnja < pocetna)
+																						swap(pocetna,krajnja);
+																					}
+	void Crtaj(TImage*) const;
+};
+
+struct Elipsa {
+	Tacka centar;
+	double a,b;
+	bool horizontalna;
+
+	double getYTackeElipse(int x, bool gornja = false){
+		int y;
+		double predznak = gornja ? -1.: 1.;
+
+		double A = pow(x-centar.x,2.);
+		double B = pow(a, 2.);
+		if(A/B > 1.) return INT_MAX;
+		return b * predznak*sqrt((1. - A/B)) + centar.y;
+
+	}
+
+
+	Elipsa(Tacka pocetna, Tacka krajnja){
+		a = abs(pocetna.x-krajnja.x)/2.;
+		b = abs(pocetna.y-krajnja.y)/2.;
+		centar = Tacka();
+		if(pocetna.x < krajnja.x){
+			centar.x = pocetna.x+a;
+		} else {
+			centar.x = pocetna.x-a;
+		}
+
+		if(pocetna.y < krajnja.y){
+			centar.y = pocetna.y+b;
+		} else {
+			centar.y = pocetna.y-b;
+		}
+
+		horizontalna = a >= b;
+	}
+	void Crtaj(TImage*) const;
+};
+
+
+class ManjePoXElipse{
+	public:
+	bool operator() (const pair<Tacka, pair<Elipsa*, bool>>& prva, const pair<Tacka, pair<Elipsa*, bool>> &druga) {
+		return druga.first < prva.first;
+	}
+};
+
+class PoluelipseIspodIznad {
+	public:
+	bool operator()(const pair<Elipsa*, bool> &prvi, const pair<Elipsa*, bool> &drugi) const {
+		if(prvi.first == drugi.first) {
+		   if(prvi.second != drugi.second)
+			 return prvi.second;
+		   else return false;
+		}
+
+		Tacka pocetna_prvog(prvi.first->centar.x - prvi.first->a, prvi.first->centar.y);
+		Tacka pocetna_drugog(drugi.first->centar.x - drugi.first->a, drugi.first->centar.y);
+
+		if(pocetna_prvog < pocetna_drugog) {
+		   if(prvi.second)
+			   return pocetna_drugog.y > prvi.first->centar.y ||
+				Udaljenost(pocetna_drugog,prvi.first->centar) < prvi.first->b;
+			else
+			   return  pocetna_drugog.y > prvi.first->centar.y &&
+				Udaljenost(pocetna_drugog,prvi.first->centar) > prvi.first->b;
+		}
+		else {
+		   if(drugi.second)
+			   return !(pocetna_prvog.y > drugi.first->centar.y ||
+				Udaljenost(pocetna_prvog,drugi.first->centar) < drugi.first->b);
+			else
+			   return  !(pocetna_prvog.y > drugi.first->centar.y &&
+				Udaljenost(pocetna_prvog,drugi.first->centar) > drugi.first->b);
+
+		}
+	}
+};
+
+bool PresjekElipsi(Elipsa&, bool, Elipsa&, TImage*);
+int Orijentacija(Tacka,Tacka,Tacka);
+void iscrtajPoligon(vector<Tacka> &poligon, TImage *image);
+int PresjekDuzi(Duz, Duz);
+Tacka TackaPresjekaPravih(Duz, Duz);
+
+
+
+//---------------------------------------------------------------------------
+#endif

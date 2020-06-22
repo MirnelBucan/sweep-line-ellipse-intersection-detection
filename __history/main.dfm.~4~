@@ -1,0 +1,257 @@
+object Forma: TForma
+  Left = 0
+  Top = 0
+  Caption = 'Forma'
+  ClientHeight = 620
+  ClientWidth = 1103
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Slika: TImage
+    Left = 8
+    Top = 8
+    Width = 961
+    Height = 565
+    OnMouseDown = SlikaMouseDown
+    OnMouseMove = SlikaMouseMove
+  end
+  object LabelBrojTacaka: TLabel
+    Left = 1027
+    Top = 8
+    Width = 58
+    Height = 13
+    Caption = 'Broj tacaka:'
+  end
+  object LabelKoordinate: TLabel
+    Left = 1033
+    Top = 560
+    Width = 52
+    Height = 13
+    Caption = 'Koordinate'
+  end
+  object TrenutnaAkcija: TLabel
+    Left = 982
+    Top = 96
+    Width = 78
+    Height = 13
+    Caption = 'Trenutna akcija:'
+  end
+  object BrojDuzi: TLabel
+    Left = 1032
+    Top = 360
+    Width = 45
+    Height = 13
+    Caption = 'Broj duzi:'
+  end
+  object EditBrojTacaka: TEdit
+    Left = 1025
+    Top = 27
+    Width = 60
+    Height = 21
+    TabOrder = 0
+    Text = '100'
+  end
+  object GenerisanjeTacaka: TButton
+    Left = 1020
+    Top = 54
+    Width = 75
+    Height = 25
+    Caption = 'Generisi tacke'
+    TabOrder = 1
+    OnClick = GenerisanjeTacakaClick
+  end
+  object EditKoordinate: TEdit
+    Left = 1033
+    Top = 591
+    Width = 73
+    Height = 21
+    TabOrder = 2
+    Text = '(0,0)'
+  end
+  object DugmeProstiMnogougao: TButton
+    Left = 8
+    Top = 589
+    Width = 97
+    Height = 23
+    Caption = 'Prosti mnogougao'
+    TabOrder = 3
+    OnClick = DugmeProstiMnogougaoClick
+  end
+  object DugmeKonveksni: TButton
+    Left = 111
+    Top = 590
+    Width = 89
+    Height = 22
+    Caption = 'Uvijanje poklona'
+    TabOrder = 4
+    OnClick = DugmeKonveksniClick
+  end
+  object DugmeGrahamScan: TButton
+    Left = 206
+    Top = 590
+    Width = 89
+    Height = 22
+    Caption = 'Graham Scan'
+    TabOrder = 5
+    OnClick = DugmeGrahamScanClick
+  end
+  object KonveksniInduktivno: TButton
+    Left = 301
+    Top = 590
+    Width = 116
+    Height = 22
+    Caption = 'Konveksni induktivno'
+    TabOrder = 6
+    OnClick = KonveksniInduktivnoClick
+  end
+  object Triangulacija: TButton
+    Left = 423
+    Top = 591
+    Width = 74
+    Height = 21
+    Caption = 'Triangulacija'
+    TabOrder = 7
+    OnClick = TriangulacijaClick
+  end
+  object DodavanjeTacaka: TRadioButton
+    Left = 982
+    Top = 115
+    Width = 113
+    Height = 17
+    Caption = 'Dodavanje tacaka'
+    TabOrder = 8
+  end
+  object CrtanjeMnogougla: TRadioButton
+    Left = 982
+    Top = 138
+    Width = 113
+    Height = 17
+    Caption = 'Crtanje mnogougla'
+    TabOrder = 9
+  end
+  object UnutarProstog: TRadioButton
+    Left = 982
+    Top = 161
+    Width = 113
+    Height = 17
+    Caption = 'Unutar prostog'
+    TabOrder = 10
+  end
+  object UnutarKonveksnog: TRadioButton
+    Left = 982
+    Top = 184
+    Width = 113
+    Height = 17
+    Caption = 'Unutar konveksnog'
+    TabOrder = 11
+  end
+  object Clear: TButton
+    Left = 1000
+    Top = 529
+    Width = 95
+    Height = 25
+    Caption = 'Clear'
+    TabOrder = 12
+    OnClick = ClearClick
+  end
+  object ZavrsiMnogougao: TButton
+    Left = 1000
+    Top = 498
+    Width = 95
+    Height = 25
+    Caption = 'Zavrsi mnogougao'
+    TabOrder = 13
+    OnClick = ZavrsiMnogougaoClick
+  end
+  object ObojiTrouglove: TRadioButton
+    Left = 982
+    Top = 207
+    Width = 113
+    Height = 17
+    Caption = 'Oboji trouglove'
+    TabOrder = 14
+  end
+  object EditBrojDuzi: TEdit
+    Left = 1032
+    Top = 379
+    Width = 51
+    Height = 21
+    TabOrder = 15
+    Text = '100'
+  end
+  object HorVerDuzi: TButton
+    Left = 975
+    Top = 407
+    Width = 120
+    Height = 26
+    Caption = 'Generisi hor. i ver. duzi'
+    TabOrder = 16
+    OnClick = HorVerDuziClick
+  end
+  object DugmePresjekHorVer: TButton
+    Left = 503
+    Top = 591
+    Width = 97
+    Height = 21
+    Caption = 'Presjek hor. i ver.'
+    TabOrder = 17
+    OnClick = DugmePresjekHorVerClick
+  end
+  object DodavanjeDuzi: TRadioButton
+    Left = 982
+    Top = 230
+    Width = 113
+    Height = 17
+    Caption = 'Dodavanje duzi'
+    TabOrder = 18
+  end
+  object DugmePresjekDuzi: TButton
+    Left = 616
+    Top = 591
+    Width = 97
+    Height = 21
+    Caption = 'Ima li presjeka'
+    TabOrder = 19
+    OnClick = DugmePresjekDuziClick
+  end
+  object crtanjeKrugova: TRadioButton
+    Left = 982
+    Top = 253
+    Width = 113
+    Height = 17
+    Caption = 'Crtanje krugova'
+    TabOrder = 20
+  end
+  object presjekKrugova: TButton
+    Left = 719
+    Top = 591
+    Width = 106
+    Height = 21
+    Caption = 'Presjek krugova'
+    TabOrder = 21
+    OnClick = presjekKrugovaClick
+  end
+  object crtanjeElipsi: TRadioButton
+    Left = 982
+    Top = 276
+    Width = 113
+    Height = 17
+    Caption = 'Crtanje elipsi'
+    TabOrder = 22
+  end
+  object presjekElipsi: TButton
+    Left = 975
+    Top = 312
+    Width = 75
+    Height = 25
+    Caption = 'Presjek elipsi'
+    TabOrder = 23
+    OnClick = presjekElipsiClick
+  end
+end

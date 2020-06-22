@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/03/05 08:42:43.000.952,=C:\Users\Admir\Documents\Embarcadero\Studio\Projects\Project4PCH1.h</Transaction>
+    <Transaction>2020/03/05 08:42:44.000.100,=C:\Users\Admir\Documents\Embarcadero\Studio\Projects\Unit4.cpp</Transaction>
+    <Transaction>2020/03/05 08:43:52.000.911,C:\Users\Admir\Documents\Embarcadero\Studio\Projects\Unit4.h=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\main.h</Transaction>
+    <Transaction>2020/03/05 08:43:52.000.911,C:\Users\Admir\Documents\Embarcadero\Studio\Projects\Unit4.dfm=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\main.dfm</Transaction>
+    <Transaction>2020/03/05 08:43:52.000.911,C:\Users\Admir\Documents\Embarcadero\Studio\Projects\Unit4.cpp=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\main.cpp</Transaction>
+    <Transaction>2020/03/05 08:46:11.000.968,C:\Users\Admir\Documents\Embarcadero\Studio\Projects\Project4PCH1.h=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\vjezbe.h</Transaction>
+    <Transaction>2020/03/05 08:46:20.000.275,C:\Users\Admir\Documents\Embarcadero\Studio\Projects\Project4.cbproj=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\Aplikacija.cbproj</Transaction>
+    <Transaction>2020/03/05 08:51:40.000.658,=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\Unit1.cpp</Transaction>
+    <Transaction>2020/03/05 08:52:49.000.338,D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\pomocna.h=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\Unit1.h</Transaction>
+    <Transaction>2020/03/05 08:52:49.000.338,D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\pomocna.cpp=D:\Fax-vjezbe\2019-2020\Komputaciona geometrija\KG1\Unit1.cpp</Transaction>
+  </Transactions>
+</BorlandProject>

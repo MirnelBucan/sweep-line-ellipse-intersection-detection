@@ -1,0 +1,65 @@
+object Forma: TForma
+  Left = 0
+  Top = 0
+  Caption = 'Forma'
+  ClientHeight = 620
+  ClientWidth = 1103
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Slika: TImage
+    Left = 8
+    Top = 8
+    Width = 961
+    Height = 565
+    OnMouseDown = SlikaMouseDown
+    OnMouseMove = SlikaMouseMove
+  end
+  object LabelKoordinate: TLabel
+    Left = 975
+    Top = 93
+    Width = 52
+    Height = 13
+    Caption = 'Koordinate'
+  end
+  object EditKoordinate: TEdit
+    Left = 975
+    Top = 112
+    Width = 73
+    Height = 21
+    TabOrder = 0
+    Text = '(0,0)'
+  end
+  object Clear: TButton
+    Left = 975
+    Top = 62
+    Width = 95
+    Height = 25
+    Caption = 'Clear'
+    TabOrder = 1
+    OnClick = ClearClick
+  end
+  object crtanjeElipsi: TRadioButton
+    Left = 975
+    Top = 8
+    Width = 113
+    Height = 17
+    Caption = 'Crtanje elipsi'
+    TabOrder = 2
+  end
+  object presjekElipsi: TButton
+    Left = 975
+    Top = 31
+    Width = 75
+    Height = 25
+    Caption = 'Presjek elipsi'
+    TabOrder = 3
+    OnClick = presjekElipsiClick
+  end
+end

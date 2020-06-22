@@ -1,0 +1,90 @@
+//---------------------------------------------------------------------------
+
+#ifndef mainH
+#define mainH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include "pomocna.h"
+#include <vector>
+#include <list>
+#include <utility>
+#include <queue>
+#include <set>
+
+using namespace std;
+//---------------------------------------------------------------------------
+class TForma : public TForm
+{
+__published:	// IDE-managed Components
+	TImage *Slika;
+	TLabel *LabelBrojTacaka;
+	TEdit *EditBrojTacaka;
+	TButton *GenerisanjeTacaka;
+	TLabel *LabelKoordinate;
+	TEdit *EditKoordinate;
+	TButton *DugmeProstiMnogougao;
+	TButton *DugmeKonveksni;
+	TButton *DugmeGrahamScan;
+	TButton *KonveksniInduktivno;
+	TButton *Triangulacija;
+	TLabel *TrenutnaAkcija;
+	TRadioButton *DodavanjeTacaka;
+	TRadioButton *CrtanjeMnogougla;
+	TRadioButton *UnutarProstog;
+	TRadioButton *UnutarKonveksnog;
+	TButton *Clear;
+	TButton *ZavrsiMnogougao;
+	TRadioButton *ObojiTrouglove;
+	TLabel *BrojDuzi;
+	TEdit *EditBrojDuzi;
+	TButton *HorVerDuzi;
+	TButton *DugmePresjekHorVer;
+	TRadioButton *DodavanjeDuzi;
+	TButton *DugmePresjekDuzi;
+	TRadioButton *crtanjeKrugova;
+	TButton *presjekKrugova;
+	void __fastcall GenerisanjeTacakaClick(TObject *Sender);
+	void __fastcall SlikaMouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
+	void __fastcall DugmeProstiMnogougaoClick(TObject *Sender);
+	void __fastcall SlikaMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y);
+	void __fastcall DugmeKonveksniClick(TObject *Sender);
+	void __fastcall DugmeGrahamScanClick(TObject *Sender);
+	void __fastcall KonveksniInduktivnoClick(TObject *Sender);
+	void __fastcall TriangulacijaClick(TObject *Sender);
+	void __fastcall ZavrsiMnogougaoClick(TObject *Sender);
+	void __fastcall ClearClick(TObject *Sender);
+	void __fastcall HorVerDuziClick(TObject *Sender);
+	void __fastcall DugmePresjekHorVerClick(TObject *Sender);
+	void __fastcall DugmePresjekDuziClick(TObject *Sender);
+	void __fastcall presjekKrugovaClick(TObject *Sender);
+
+
+private:
+	vector<Tacka> tacke;
+	vector<Tacka> konveksni_omotac;
+	vector<pair<Duz, pair<int,int>>> dijagonale; //za triangulaciju
+	vector<Duz> duzi;
+    vector<Krug> krugovi;
+	bool odredjen_centar;
+	Tacka centar;
+	Tacka *pocetna_tacka_duzi; //za crtanje duzi, pamti se prethodni klik, nullptr ako ga nije bilo
+    int brojac;
+	void dodajTacku(Tacka);
+	bool daLiJeUnutarKonveksnog(Tacka);
+	void povuciTangente(Tacka,int&,int&);
+	void pomjeriIteratorNaprijed(list<pair<Tacka,int>>::iterator &, list<pair<Tacka,int>> &);
+	void pomjeriIteratorNazad(list<pair<Tacka,int>>::iterator &, list<pair<Tacka,int>> &);
+public:
+	__fastcall TForma(TComponent* Owner);
+};
+
+
+//---------------------------------------------------------------------------
+extern PACKAGE TForma *Forma;
+//---------------------------------------------------------------------------
+#endif
